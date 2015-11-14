@@ -31,45 +31,54 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <?php foreach ($value['answers'] as $aKey => $aValue) {
-                        ?>
-                        <div class="radio answer">
-                            <label >
-
-                                <?php
-                                $submittedAnswerKeys = array_keys($submittedAnswers);
-                                $answer = $submittedAnswers[$submittedAnswerKeys[$key]];
-                                //displaying right or wrong status of the answer by comparing
-                                //user submitted answers with cached answers
-                                if ($aValue->mark > 0) {
-                                    if ($aValue->id == $answer) {
+                    <?php
+                    foreach ($value['answers'] as $aKey => $aValue) {
+                        $submittedAnswerKeys = array_keys($submittedAnswers);
+                        $answer = $submittedAnswers[$submittedAnswerKeys[$key]];
+                        //displaying right or wrong status of the answer by comparing
+                        //user submitted answers with cached answers
+                        if ($aValue->mark > 0) {
+                            if ($aValue->id == $answer) {
+                                ?>
+                                <div class="radio answer">
+                                    <label >
+                                        <?php
                                         echo $aValue->name;
                                         ?>
                                         <span class="default-text"><= Your answer is </span>
                                         <span class="right-answer">right!</span>
+                                    </label>
+                                </div>
+                                <?php
+                            } else {
+                                ?><div class="radio answer">
+                                    <label >
                                         <?php
-                                    } else {
                                         echo $aValue->name;
                                         ?>
                                         <span class="default-text"><= This is the </span>
                                         <span class="right-answer">correct!</span>
                                         <span class="default-text">Answer </span>
+                                    </label>
+                                </div>
+                                <?php
+                            }
+                        } else {
+                            if ($aValue->id == $answer) {
+                                ?><div class="radio answer">
+                                    <label >
                                         <?php
-                                    }
-                                } else {
-                                    if ($aValue->id == $answer) {
                                         echo $aValue->name;
                                         ?>
                                         <span class="default-text"><= Your answer is </span>
                                         <span class="wrong-answer">wrong!</span>
-                                        <?php
-                                    } else {
-                                        echo $aValue->name;
-                                    }
-                                }
-                                ?>
-                            </label>
-                        </div>
+                                    </label>
+                                </div>
+                                <?php
+                            }
+                        }
+                        ?>
+
                         <?php
                     }
                     ?>
