@@ -24,13 +24,15 @@
 
 <div class="container-question">
     <div class="col-lg-12 text-center">
-        <body>
+        <body> 
+            <!--Display time taken-->
             <div class="clock-text">Time Taken:<span id="time"></span> !</div>
         </body>
     </div>
-    <!-- /navbar -->
     <form action='<?php echo base_url(); ?>score_controller' method="POST">
         <div class="col-md-10 column">
+            <!--Dynamically loading Questions and answers 
+            by iterating through questionStructure sent from the Question_Controller-->
             <?php
             $questionStructure = $this->data['questionStructure'];
             foreach ($questionStructure as $key => $value) {
@@ -58,6 +60,7 @@
                 <?php
             }
             ?>
+            <!--END-->
             <div class="panel-footer">
                 <input class="btn btn-primary " id="submitResultsButton" name="submitResultsButton" type="submit" value="Confirm"/>
                 <a href="<?php echo base_url(); ?>" class="btn btn-default" role="button">Cancel</a>
@@ -66,6 +69,7 @@
             </div>
 
         </div>
+        <!--Hidden field to store time taken-->
         <input type="hidden" name="timeTaken" id="timeTaken" value=""/>
     </form>
 </div>

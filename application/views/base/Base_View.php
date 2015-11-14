@@ -16,6 +16,7 @@
                 </div>
             </div>
             <div class="main">
+                <!--Appending sub-view content -->
                 <?php $this->load->view($subview); ?>
             </div>
         </div>
