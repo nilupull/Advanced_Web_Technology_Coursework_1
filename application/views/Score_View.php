@@ -40,7 +40,7 @@
                         if ($aValue->mark > 0) {
                             if ($aValue->id == $answer) {
                                 ?>
-                                <div class="radio answer">
+                                <div class=" answer">
                                     <label >
                                         <?php
                                         echo $aValue->name;
@@ -51,7 +51,7 @@
                                 </div>
                                 <?php
                             } else {
-                                ?><div class="radio answer">
+                                ?><div class=" answer">
                                     <label >
                                         <?php
                                         echo $aValue->name;
@@ -65,7 +65,7 @@
                             }
                         } else {
                             if ($aValue->id == $answer) {
-                                ?><div class="radio answer">
+                                ?><div class=" answer">
                                     <label >
                                         <?php
                                         echo $aValue->name;
