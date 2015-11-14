@@ -41,15 +41,17 @@ class Score_Controller extends Base_Controller {
             $total = 0;
             //accessing timeTaken value
             $timeTaken = $this->input->post('timeTaken');
+            $selectedQuestionType=$this->input->post('questionType');
             if ($post_params) {
                 //removing submit button and timeTaken hidden field values from array
+                array_pop($post_params);
                 array_pop($post_params);
                 array_pop($post_params);
                 //
                 //Iterate through post_params array
                 foreach ($post_params as $key => $value) {
                     //accessing previously cached questionStructure array
-                    $questionStructure = $this->cache->get('questionStructure');
+                    $questionStructure = $this->cache->get($selectedQuestionType);
                     //Iterate through questionStructure array
                     foreach ($questionStructure as $qKey => $qValue) {
                         //Iterate through answers array

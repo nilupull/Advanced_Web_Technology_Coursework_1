@@ -2,7 +2,7 @@
 
 /**
  * A model class which extends CI_Model class.
- * This class includes a set of Read functions
+ * This class includes a set of Data Fetching functions
  * @author NLiyanage
  */
 class Base_Model extends CI_Model {
@@ -63,7 +63,7 @@ class Base_Model extends CI_Model {
     }
 
     /**
-     * Initialize model object values from a stdclass object values.
+     * Assign values into model object from a database results row.
      * @param stdclass row
      * @return void
      */

@@ -58,8 +58,10 @@ class Question_Controller extends Base_Controller {
             }
             //Assigining questionStructure values to the associative array 'data'.
             $this->data['questionStructure'] = $questionStructure;
+            $this->data['questionType'] = $p['quizDropDown'];
             //Caching for further usage of questionStructure and setting expire time to unlimited
-            $this->cache->save('questionStructure', $questionStructure, 0);
+            //This array is cached by it's question type id
+            $this->cache->save($p['quizDropDown'], $questionStructure, 0);
             //Invoking a superclass function responsible of loading views.
             $this->load_view('Quiz_View');
         } else {

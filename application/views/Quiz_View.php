@@ -30,6 +30,7 @@
         </body>
     </div>
     <form action='<?php echo base_url(); ?>score_controller' method="POST">
+        
         <div class="col-md-10 column">
             <!--Dynamically loading Questions and answers 
             by iterating through questionStructure sent from the Question_Controller-->
@@ -71,5 +72,6 @@
         </div>
         <!--Hidden field to store time taken-->
         <input type="hidden" name="timeTaken" id="timeTaken" value=""/>
+        <input type="hidden" name="questionType" id="questionType" value="<?php echo $this->data['questionType']?>" >
     </form>
 </div>

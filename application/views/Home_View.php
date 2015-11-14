@@ -22,6 +22,5 @@
                 </div>
             </form>
         </div>
-
-    </div> <!-- /row -->
+    </div>
 </div>
