@@ -16,6 +16,7 @@ class Home_Controller extends Base_Controller {
      */
     public function __construct() {
         parent::__construct();
+        //loading model class.
         $this->load->model('Question_Type_Model');
     }
 
@@ -33,8 +34,11 @@ class Home_Controller extends Base_Controller {
      */
     public function load_home() {
         $quiz = new Question_Type_Model();
+        //Getting all the Question_Type records as Question_Type_Model type array.
         $result = $quiz->get();
+        //Assigining question_type values to the associative array 'data'.
         $this->data['quizzes'] = $result;
+        //Invoking a superclass function responsible of loading views.
         $this->load_view('Home_View');
     }
 

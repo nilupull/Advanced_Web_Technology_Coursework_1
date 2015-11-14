@@ -16,6 +16,7 @@ class Score_Controller extends Base_Controller {
      */
     public function __construct() {
         parent::__construct();
+        //loading model classes.
         $this->load->model('Question_Model');
         $this->load->model('Answer_Model');
     }
@@ -33,28 +34,45 @@ class Score_Controller extends Base_Controller {
      * @return void
      */
     private function load_score() {
-        $p = $this->input->post();
-
-        $total = 0;
-        $timeTaken = $this->input->post('timeTaken');
-        if ($p) {
-            array_pop($p);
-            array_pop($p);
-            foreach ($p as $key => $value) {
-                $questionStructure = $this->cache->get('questionStructure');
-                foreach ($questionStructure as $qKey => $qValue) {
-                    foreach ($qValue['answers'] as $aKey => $aValue) {
-                        $b = $aValue->id;
-                        if ($b == $value) {
-                            $total+= $aValue->mark;
+        //Getting all the POST parameters as an array
+        $post_params = $this->input->post();
+        if (isset($post_params['timeTaken'])) {
+            //a variable to store the final score
+            $total = 0;
+            //accessing timeTaken value
+            $timeTaken = $this->input->post('timeTaken');
+            if ($post_params) {
+                //removing submit button and timeTaken hidden field values from array
+                array_pop($post_params);
+                array_pop($post_params);
+                //
+                //Iterate through post_params array
+                foreach ($post_params as $key => $value) {
+                    //accessing previously cached questionStructure array
+                    $questionStructure = $this->cache->get('questionStructure');
+                    //Iterate through questionStructure array
+                    foreach ($questionStructure as $qKey => $qValue) {
+                        //Iterate through answers array
+                        foreach ($qValue['answers'] as $aKey => $aValue) {
+                            //answer id matched with post_param's answer ID
+                            if ($aValue->id == $value) {
+                                //add answer mark to the final score
+                                $total+= $aValue->mark;
+                            }
                         }
                     }
                 }
             }
+            //Assigining required values to the associative array 'data'.
+            $this->data['finalScore'] = $total;
+            $this->data['submittedAnswers'] = $post_params;
+            $this->data['timeTaken'] = $timeTaken;
+            //Invoking a superclass function responsible of loading views.
+            $this->load_view('Score_View');
+        } else {
+            //If timeTaken value is not set loading Error_View
+            $this->load_view('Error_View');
         }
-        $this->data['finalScore'] = $total;
-        $this->data['submittedAnswers'] = $p;
-        $this->data['timeTaken'] = $timeTaken;
-        $this->load_view('Score_View');
     }
+
 }

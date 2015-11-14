@@ -36,6 +36,7 @@ class Question_Model extends Base_Model {
      */
     public function __construct() {
         parent::__construct();
+        //setting attribute types.
         settype($this->id, "integer");
         settype($this->name, "string");
         settype($this->question_type_id, "integer");

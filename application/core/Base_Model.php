@@ -19,7 +19,7 @@ class Base_Model extends CI_Model {
      * Fetch an array of Model objects filtered by id and column name.
      * @param integer value
      * @param string column 
-     * @return array of Model objected indexed by primary key value.
+     * @return array array of Model objects indexed by primary key value.
      */
     public function getByColumn($value, $column) {
         //Building select query to fetch data from the DB_TABLE table 
@@ -42,7 +42,7 @@ class Base_Model extends CI_Model {
 
     /**
      * Fetch an array of Model objects.
-     * @return array of Model objected indexed by primary key value.
+     * @return array array of Model objects indexed by primary key value.
      */
     public function get() {
         //Building select query to fetch data from the DB_TABLE table 
