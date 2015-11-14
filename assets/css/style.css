@@ -1,0 +1,81 @@
+@import url(http://fonts.googleapis.com/css?family=Antic+Slab);
+
+html,body {
+    height:100%;
+}
+
+h1 {
+    font-family: 'Antic Slab', serif;
+    font-size:80px;
+    color:#FF0033;
+}
+.right-answer {
+    font-family: 'Antic Slab', serif;
+    font-size:15px;
+    color:#99FF33;
+}
+.wrong-answer {
+    font-family: 'Antic Slab', serif;
+    font-size:15px;
+    color:#FF0033;
+}
+
+
+.lead {
+    color:#FF3333;
+}
+
+.answer {
+    color:#FF3333;
+}
+
+
+/* Custom container */
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+    min-height:100%;
+    background-color:#101010;
+    color:#eee;
+    overflow:hidden;
+}
+
+/* Custom container */
+.container-question {
+    margin: 0 auto;
+    width: 100%;
+    min-height:100%;
+    background-color:#101010;
+    color:#eee;
+    overflow:hidden;
+}
+.question-nav{
+    background-color:#101010;
+    font-family: 'Antic Slab', serif;
+    font-size:30px;
+
+}
+.question-title{
+    width: 100%;
+    min-height:2%;
+    background-color:#303030 ;
+    font-family: 'Antic Slab', serif;
+    font-size:20px;
+
+}
+
+.container-full a {
+    color:#efefef;
+    text-decoration:none;
+}
+
+.v-center {
+    margin-top:7%;
+}
+.default-text {
+    color:#F8F8F8;
+}
+.clock-text {
+    font-size:30px;
+    color:#F8F8F8;
+}
