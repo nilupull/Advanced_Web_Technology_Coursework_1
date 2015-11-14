@@ -26,7 +26,9 @@ class Base_Controller extends CI_Controller {
      * @return void
      */
     protected function load_view($subView) {
+        //initializing data array with specified subview
         $this->data['subview'] = $subView;
+        //loading Base_View by sending initialized data array as a parameter.
         $this->load->view('base/Base_View', $this->data);
     }
 
