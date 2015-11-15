@@ -29,7 +29,7 @@
             <div class="clock-text">Time Taken:<span id="time"></span> !</div>
         </body>
     </div>
-    <form action='<?php echo base_url(); ?>score_controller' method="POST">
+    <form action='<?php echo base_url(); ?>score_controller' name="Quiz_Form" method="POST">
         
         <div class="col-md-10 column">
             <!--Dynamically loading Questions and answers 
